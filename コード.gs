@@ -1,4 +1,4 @@
-TARGET_STOCK = 2521; // アラートを設定する銘柄
+TARGET_STOCK = 2521; // 通知を設定する銘柄
 TARGET_DROP_RATE = -5; // 騰落率(%)
 TAEGET_VALUE = 5; // どの値で比較？2=始値、5=終値
 
@@ -10,7 +10,7 @@ function send_message(rate){
 　　// パラメーターの指定(分かりやすいように変数に格納します)
     var recipient = Session.getActiveUser().getUserLoginId(); // 実行者のメールアドレスを取得
     var subject = "株の購入タイミングです！";
-    var body = "暴騰率は" + Math.round(rate*100*100) / 100 + "%です\n";
+    var body = "騰落率は" + Math.round(rate*100*100) / 100 + "%です\n";
 
     // メール送信
     GmailApp.sendEmail(recipient, subject, body);
@@ -81,7 +81,7 @@ function myFunction() {
 
   sheet.getRange(2, 8).setValue(value_rate).setNumberFormat('0.00%');
 
-  // 暴騰率が設定値を下回っていたらメールを送る
+  // 騰落率が設定値を下回っていたらメールを送る
   if(value_rate*100 < TARGET_DROP_RATE) {
     send_message(value_rate);
   }
