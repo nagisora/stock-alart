@@ -1,2 +1,10 @@
-# stock-alart
-send stock alart
+# 株価通知アプリ
+GASで株価のwebスクレイピングを行い、暴騰率が閾値を超えたらメールで通知します。
+
+# 開発環境
+- スプレッドシート
+- GAS
+- ライブラリ（Parser、Day.js）
+
+# ひと言
+GitHubで公開するのは初めてです。
